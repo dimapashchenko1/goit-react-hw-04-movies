@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { NavLink, useRouteMatch, useLocation } from "react-router-dom";
 
-import { Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import { getMovieDetails } from "../../../services/MoviesApi";
@@ -64,13 +64,15 @@ export default function MovieDetailsPage() {
       >
         Reviews
       </NavLink>
-
+      <Switch>
       <Route path={`${path}/cast`}>
         <Cast />
       </Route>
       <Route exact path={`${path}/reviews`}>
         <Reviews />
       </Route>
+      </Switch>
+      
     </div>
   );
 }
